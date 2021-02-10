@@ -23,3 +23,7 @@ This is a shopping list Telegram Bot that I made to help me and my family manage
 ### recuperar
 
 `recuperar` prints the last emptied list. Should be used as a backup when a list is emptied without being supposed to.
+
+## Technology
+
+Made with Nodejs using the [Telegraf Framework](https://github.com/telegraf/telegraf), deployed to my [Digital Ocean](https://www.digitalocean.com/) server using [pm2](https://pm2.keymetrics.io/).
