@@ -12,17 +12,17 @@ This is a shopping list Telegram Bot that I made to help me and my family manage
 
 `-` removes an item from the list. To remove potatoes, for example, say `- potatoes`. Current version does not support removing more than one item.
 
-### lista
+### mostrar lista
 
-`lista` gets the current shopping list. 
+`mostrar lista` gets the current shopping list. 
 
-### apagar
+### apagar lista
 
-`apagar` empties the current shopping list.
+`apagar lista` empties the current shopping list.
 
-### recuperar
+### recuperar lista
 
-`recuperar` prints the last emptied list. Should be used as a backup when a list is emptied without being supposed to.
+`recuperar lista` prints the last emptied list. Should be used as a backup when a list is emptied without being supposed to.
 
 ## Technology
 

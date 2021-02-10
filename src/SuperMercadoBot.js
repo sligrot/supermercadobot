@@ -21,7 +21,7 @@ bot.hears(/- (.+)/, (ctx) => {
    }
 })
 
-bot.hears(/lista/, (ctx) => {
+bot.hears(/mostrar lista/b, (ctx) => {
     try {
         list = service.getFormattedList();
         ctx.reply(list);
@@ -30,7 +30,7 @@ bot.hears(/lista/, (ctx) => {
     }
 })
 
-bot.hears(/apagar/, (ctx) => {
+bot.hears(/apagar lista/b, (ctx) => {
     try {
         service.deleteList();
         ctx.reply("A lista foi apagada com sucesso");
@@ -39,7 +39,7 @@ bot.hears(/apagar/, (ctx) => {
     }
 })
 
-bot.hears(/recuperar/, (ctx) => {
+bot.hears(/recuperar lista/b, (ctx) => {
     try {
         list = service.getBackupList();
         ctx.reply(list);
