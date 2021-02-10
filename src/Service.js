@@ -26,8 +26,8 @@ class Service {
             return "A lista está vazia! Adicione itens digitando '+ item'";
         }
         let formattedList = "Lista de Compras: \n";
-        for (let index in this.list) {
-            formattedList += "-" + this.list[index] + "\n";
+        for (let item of this.list) {
+            formattedList += "-" + item + "\n";
         } 
         return formattedList;
     }
@@ -42,8 +42,8 @@ class Service {
             return "A lista antiga está vazia";
         }
         let formattedList = "A última lista de compras foi: \n";
-        for (let index in this.backupList) {
-            formattedList += "-" + this.backupList[index] + "\n";
+        for (let item of this.backupList) {
+            formattedList += "-" + item + "\n";
         } 
         return formattedList
     }
