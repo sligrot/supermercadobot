@@ -6,7 +6,7 @@ To deploy a similar bot using this code, follow these instructions:
 - `git clone` this repository
 - Go to the project's root and run `export BOT_TOKEN={YOUR_API_TOKEN}`
 - Run `npm install` to install dependencies
-- Run `node src/SuperMercadoBot.js` to start your bot`
+- Run `node src/SuperMercadoBot.js` to start your bot
 
 ## Usage
 
