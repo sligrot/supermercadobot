@@ -1,6 +1,12 @@
 # SuperMercadoBot
 
 This is a shopping list Telegram Bot that I made to help me and my family manage grocery shopping.
+To deploy a similar bot using this code, follow these instructions:
+- Get an API token from BotFather on Telegram
+- `git clone` this repository
+- Go to the project's root and run `export BOT_TOKEN={YOUR_API_TOKEN}`
+- Run `npm install` to install dependencies
+- Run `node src/SuperMercadoBot.js` to start your bot`
 
 ## Usage
 
