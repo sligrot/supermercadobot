@@ -2,6 +2,10 @@ const { Telegraf } = require('telegraf');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const Service = require('./Service');
 const service = new Service();
+const BOT = require('./BotMessages')
+
+bot.start((ctx) => ctx.reply(BOT.START_MESSAGE));
+bot.help((ctx) => ctx.reply(BOT.HELP_MESSAGE));
 
 bot.hears(/\+ (.+)/, (ctx) => {
     try {
