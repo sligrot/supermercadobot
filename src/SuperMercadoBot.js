@@ -6,7 +6,10 @@ const service = new Service();
 bot.hears(/\+ (.+)/, (ctx) => {
     try {
         item = service.addItemToList(ctx.message.text);
-        ctx.reply(item + ' foi adicionado à lista');
+        if (item.includes(',')) 
+            ctx.reply(item + ' foram adicionados à lista');
+        else 
+            ctx.reply(item + ' foi adicionado à lista');
     } catch {
         ctx.reply("Erro ao adicionar à lista");
     }
