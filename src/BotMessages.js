@@ -13,12 +13,13 @@ class BotMessages {
     Obrigado e boas compras!`
 
     static HELP_MESSAGE = `
-    "+ item" para adicionar item
-    "+ item1, item2, item3..." para adicionar mais de um item
-    "Mostrar lista" para mostrar a lista
-    "- item" para remover item
-    "Apagar lista" para apagar a lista
-    "Recuperar lista" para mostrar última lista apagada
+Comandos:
+    - "+ item" para adicionar item
+    - "+ item1, item2, item3..." para adicionar mais de um item
+    - "Mostrar lista" para mostrar a lista
+    - "- item" para remover item
+    - "Apagar lista" para apagar a lista
+    - "Recuperar lista" para mostrar última lista apagada
     `
 }
 
