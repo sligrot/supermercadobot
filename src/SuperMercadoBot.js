@@ -1,58 +1,69 @@
-const { Telegraf } = require('telegraf');
+const { Telegraf, session } = require('telegraf');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const Service = require('./Service');
 const service = new Service();
-const BOT = require('./BotMessages')
+const BOT = require('./BotMessages');
+
+// Initialize session
+bot.use(session());
 
 bot.start((ctx) => ctx.reply(BOT.START_MESSAGE));
 bot.help((ctx) => ctx.reply(BOT.HELP_MESSAGE));
 
-bot.hears(/\+ (.+)/, (ctx) => {
-    try {
-        item = service.addItemToList(ctx.message.text);
-        if (item.includes(',')) 
-            ctx.reply(item + ' foram adicionados à lista');
-        else 
-            ctx.reply(item + ' foi adicionado à lista');
-    } catch {
-        ctx.reply("Erro ao adicionar à lista");
-    }
-})
+bot.command('/+', (ctx) => {
+    ctx.reply('Vennligst skriv inn varene du vil legge til, separert med komma.');
+    ctx.session.waitingForInput = true; // Set a flag to indicate we're waiting for input
+});
 
-bot.hears(/- (.+)/, (ctx) => {
+// Listen for all messages
+bot.on('message', (ctx) => {
+    if (ctx.session.waitingForInput) {
+        try {
+            const items = ctx.message.text; // The user input
+            const addedItems = service.addItemToList(items);
+            ctx.reply(addedItems + ' er lagt til i listen.');
+            ctx.session.waitingForInput = false; // Reset the flag
+        } catch (error) {
+            ctx.reply("Feil ved å legge til i listen.");
+        }
+    }
+});
+
+bot.command('/–', (ctx) => {
    try {
-       item = service.removeItemFromList(ctx.message.text);
-       ctx.reply(item + ' foi removido da lista');
-   } catch {
-       ctx.reply("Item não encontrado");
+       const item = service.removeItemFromList(ctx.message.text);
+       ctx.reply(item + ' er fjernet fra listen');
+   } catch (error) {
+       ctx.reply("Elementet ble ikke funnet");
    }
-})
+});
 
-bot.hears(/mostrar lista/i, (ctx) => {
+bot.command('vis liste', (ctx) => {
     try {
-        list = service.getFormattedList();
+        const list = service.getFormattedList();
         ctx.reply(list);
-    } catch {
-        ctx.reply("Erro ao exibir lista");
+    } catch (error) {
+        ctx.reply("Feil ved å vise listen");
     }
-})
+});
 
-bot.hears(/apagar lista/i, (ctx) => {
+bot.command('slett liste', (ctx) => {
     try {
         service.deleteList();
-        ctx.reply("A lista foi apagada com sucesso");
-    } catch {
-        ctx.reply("Erro ao apagar lista");
+        ctx.reply("Listen ble slettet suksessfullt");
+    } catch (error) {
+        ctx.reply("Feil ved å slette listen");
     }
-})
+});
 
-bot.hears(/recuperar lista/i, (ctx) => {
+bot.command('gjenopprett liste', (ctx) => {
     try {
-        list = service.getBackupList();
+        const list = service.getBackupList();
         ctx.reply(list);
-    } catch {
-        ctx.reply("Erro ao recuperar lista");
+    } catch (error) {
+        ctx.reply("Feil ved å hente tilbake listen");
     }
-})
+});
 
+// Launch the bot
 bot.launch();

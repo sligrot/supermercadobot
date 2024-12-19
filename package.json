@@ -2,17 +2,16 @@
   "name": "supermercadobot",
   "version": "1.0.0",
   "description": "Shopping list Telegram Bot",
-  "main": "index.js",
+  "main": "handlelistebot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "remde",
   "license": "ISC",
   "dependencies": {
-    "pm2": "^4.5.4",
+    "pm2": "^5.4.3",
     "telegraf": "^4.0.3"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/remde/supermercadobot.git"
