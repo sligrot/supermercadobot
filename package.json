@@ -2,15 +2,17 @@
   "name": "supermercadobot",
   "version": "1.0.0",
   "description": "Shopping list Telegram Bot",
-  "main": "handlelistebot.js",
+  "main": "handlelistebot.js",  // Entry point for your bot
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node handlelistebot.js"  // Script to start your bot
   },
   "author": "remde",
   "license": "ISC",
   "dependencies": {
     "pm2": "^5.4.3",
-    "telegraf": "^4.0.3"
+    "telegraf": "^4.0.3",
+    "path": "^0.12.7"  // Assuming you need the 'path' module for file management, adjust if not needed
   },
   "repository": {
     "type": "git",
